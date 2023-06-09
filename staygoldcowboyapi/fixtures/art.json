@@ -1,0 +1,22 @@
+[
+  {
+      "model": "staygoldencowboyapi.art",
+      "pk": 1,
+      "fields": {
+          "title": "If you love me",
+          "creation_date": "Nov 2022",
+          "image_url": "www.cowboy.com",
+          "user": 1
+      }
+  },
+  {
+    "model": "staygoldencowboyapi.art",
+    "pk": 2,
+    "fields": {
+        "title": "Leave",
+        "creation_date": "Dec 2021",
+        "image_url": "www.sonatore.com",
+        "user": 1
+    }
+}
+]
