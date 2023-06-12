@@ -1,0 +1,23 @@
+[
+    {
+        "model": "staygoldcowboyapi.tag",
+        "pk": 1,
+        "fields": {
+            "medium": "emosurrealism"
+        }
+    },
+    {
+        "model": "staygoldcowboyapi.tag",
+        "pk": 2,
+        "fields": {
+            "medium": "polaroids"
+        }
+    },
+    {
+        "model": "staygoldcowboyapi.tag",
+        "pk": 3,
+        "fields": {
+            "medium": "painting"
+        }
+    }
+]
