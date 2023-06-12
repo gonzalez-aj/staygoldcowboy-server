@@ -1,20 +1,20 @@
 [
     {
-        "model": "staygoldencowboyapi.tag",
+        "model": "staygoldcowboyapi.tag",
         "pk": 1,
         "fields": {
             "medium": "emosurrealism"
         }
     },
     {
-        "model": "staygoldencowboyapi.tag",
+        "model": "staygoldcowboyapi.tag",
         "pk": 2,
         "fields": {
             "medium": "polaroids"
         }
     },
     {
-        "model": "staygoldencowboyapi.tag",
+        "model": "staygoldcowboyapi.tag",
         "pk": 3,
         "fields": {
             "medium": "painting"

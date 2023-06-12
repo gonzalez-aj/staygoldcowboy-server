@@ -1,6 +1,6 @@
 [
   {
-      "model": "staygoldencowboyapi.fan",
+      "model": "staygoldcowboyapi.fan",
       "pk": 1,
       "fields": {
           "uid": 1,

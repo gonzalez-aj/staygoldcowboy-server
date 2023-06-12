@@ -1,20 +1,20 @@
 [
     {
-        "model": "staygoldencowboyapi.art",
+        "model": "staygoldcowboyapi.art",
         "pk": 1,
         "fields": {
             "title": "If you love me",
-            "creation_date": "Nov 2022",
+            "creation_date": "2022-11-30",
             "image_url": "https://img.rawpixel.com/private/static/images/website/2022-05/sk9791-image-kwvuja96.jpg?w=800&dpr=1&fit=default&crop=default&q=65&vib=3&con=3&usm=15&bg=F4F4F3&ixlib=js-2.2.1&s=13500e5125cd13300ba36ed88517f83e",
             "fan": 1
         }
     },
     {
-        "model": "staygoldencowboyapi.art",
+        "model": "staygoldcowboyapi.art",
         "pk": 2,
         "fields": {
             "title": "Leave",
-            "creation_date": "Dec 2021",
+            "creation_date": "2021-12-12",
             "image_url": "https://www.publicdomainpictures.net/pictures/320000/nahled/background-image.png",
             "fan": 1
         }
