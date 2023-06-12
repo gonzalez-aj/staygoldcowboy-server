@@ -1,0 +1,11 @@
+[
+  {
+      "model": "staygoldencowboyapi.fan",
+      "pk": 1,
+      "fields": {
+          "uid": 1,
+          "first_name": "Cow",
+          "last_name": "Boy"
+      }
+  }
+]

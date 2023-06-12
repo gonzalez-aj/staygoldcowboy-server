@@ -1,23 +1,23 @@
 [
-  {
-      "model": "staygoldencowboyapi.tag",
-      "pk": 1,
-      "fields": {
-          "medium": "emosurrealism"
-      }
-  },
-  {
-      "model": "staygoldencowboyapi.tag",
-      "pk": 2,
-      "fields": {
-          "medium": "polaroids"
-      }
-  },
-  {
-      "model": "staygoldencowboyapi.tag",
-      "pk": 3,
-      "fields": {
-          "medium": "painting"
-      }
-  }
+    {
+        "model": "staygoldencowboyapi.tag",
+        "pk": 1,
+        "fields": {
+            "medium": "emosurrealism"
+        }
+    },
+    {
+        "model": "staygoldencowboyapi.tag",
+        "pk": 2,
+        "fields": {
+            "medium": "polaroids"
+        }
+    },
+    {
+        "model": "staygoldencowboyapi.tag",
+        "pk": 3,
+        "fields": {
+            "medium": "painting"
+        }
+    }
 ]
