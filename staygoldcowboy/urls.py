@@ -16,7 +16,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from django.urls import path
+from staygoldcowboyapi.views import register_user, check_user
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('register', register_user),
+    path('checkuser', check_user),
 ]
