@@ -1,4 +1,4 @@
-"""View module for handling requests about game types"""
+"""View module for handling requests about Arts"""
 from django.http import HttpResponseServerError
 from rest_framework.viewsets import ViewSet
 from rest_framework.response import Response

@@ -20,13 +20,15 @@ from django.contrib import admin
 from django.urls import path
 from django.urls import path
 from staygoldcowboyapi.views import (
-        register_user, 
-        check_user, 
-        ArtView
+        register_user,
+        check_user,
+        ArtView,
+        TagView
     )
 
 router = routers.DefaultRouter(trailing_slash=False)
 router.register(r'arts', ArtView, 'art')
+router.register(r'tags', TagView, 'tag')
 
 urlpatterns = [
     path('admin/', admin.site.urls),
