@@ -3,11 +3,30 @@ from django.http import HttpResponseServerError
 from rest_framework.viewsets import ViewSet
 from rest_framework.response import Response
 from rest_framework import serializers, status
-from staygoldcowboyapi.models import Art
+from staygoldcowboyapi.models import Art, Fan, Tag
 
 
 class ArtView(ViewSet):
     """SGC Art view"""
+
+    def create(self, request):
+        """Handle POST operations
+
+        Returns
+            Response -- JSON serialized game instance
+        """
+        fan = Fan.objects.get(uid=request.data["userId"])
+        tag = Tag.objects.get(pk=request.data["tag"])
+
+        art = Art.objects.create(
+            fan=fan,
+            title=request.data["title"],
+            creation_date=request.data["creationDate"],
+            image_url=request.data["imageUrl"],
+            tag=tag
+        )
+        serializer = ArtSerializer(art)
+        return Response(serializer.data, status=status.HTTP_201_CREATED)
 
     def retrieve(self, request, pk):
         """Handle GET requests for single art
