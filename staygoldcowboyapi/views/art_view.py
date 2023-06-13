@@ -15,18 +15,26 @@ class ArtView(ViewSet):
         Returns:
             Response -- JSON serialized art
         """
-        art = Art.objects.get(pk=pk)
-        serializer = ArtSerializer(art)
-        return Response(serializer.data, status=status.HTTP_200_OK)
-
+        try:
+            art = Art.objects.get(pk=pk)
+            serializer = ArtSerializer(art)
+            return Response(serializer.data, status=status.HTTP_200_OK)
+        except Art.DoesNotExist as ex:
+            return Response({'message': ex.args[0]}, status=status.HTTP_404_NOT_FOUND)
 
     def list(self, request):
-        """Handle GET requests to get All Art
-
+        """Handle GET requests to get All Arts
+        and filter Arts by tag
         Returns:
-            Response -- JSON serialized list of art
+            Response -- JSON serialized list of arts
         """
         arts = Art.objects.all()
+
+        tag = request.query_params.get('tag', None)
+        print('tag', tag)
+        if tag is not None:
+            arts = arts.filter(tag=tag)
+
         serializer = ArtSerializer(arts, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
 
@@ -43,3 +51,4 @@ class ArtSerializer(serializers.ModelSerializer):
             'image_url', 
             'tag'
             )
+        depth = 1
