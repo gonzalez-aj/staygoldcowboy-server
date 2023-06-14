@@ -16,7 +16,7 @@ class ArtView(ViewSet):
             Response -- JSON serialized game instance
         """
         fan = Fan.objects.get(uid=request.data["uid"])
-        tag = Tag.objects.get(pk=request.data["tag"])
+        tag_ids = request.data.pop("tag", [])
 
         art = Art.objects.create(
             fan=fan,
@@ -24,7 +24,11 @@ class ArtView(ViewSet):
             creation_date=request.data["creationDate"],
             image_url=request.data["imageUrl"],
         )
-        art.tag.set([tag])
+
+        for tag_id in tag_ids:
+            tag = Tag.objects.get(pk=tag_id)
+            art.tag.add(tag)
+
         serializer = ArtSerializer(art)
         return Response(serializer.data, status=status.HTTP_201_CREATED)
 
@@ -71,3 +75,17 @@ class ArtSerializer(serializers.ModelSerializer):
             'tag'
             )
         depth = 1
+
+class TagSerializer(serializers.ModelSerializer):
+    """JSON serializer for Tag
+    """
+    class Meta:
+        model = Tag
+        fields = ('id', 'label')
+
+class FanSerializer(serializers.ModelSerializer):
+    """JSON serializer for Fan
+    """
+    class Meta:
+        model = Fan
+        fields = ('id', 'user')
