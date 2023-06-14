@@ -9,6 +9,19 @@ from staygoldcowboyapi.models import Tag
 class TagView(ViewSet):
     """SGC Tag view"""
 
+    def create(self, request):
+        """Handle POST operations
+
+        Returns
+            Response -- JSON serialized game instance
+        """
+
+        new_tag = Tag.objects.create(
+            medium=request.data["medium"]
+        )
+        serializer = TagSerializer(new_tag)
+        return Response(serializer.data)
+
     def retrieve(self, request, pk):
         """Handle GET requests for single tag
 
