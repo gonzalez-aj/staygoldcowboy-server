@@ -62,9 +62,18 @@ class ArtView(ViewSet):
         serializer = ArtSerializer(arts, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
 
+
+class ArtFanSerializer(serializers.ModelSerializer):
+    """JSON serializer for Fan
+    """
+    class Meta:
+        model = Fan
+        fields = ('id', 'uid', 'full_name')
+
 class ArtSerializer(serializers.ModelSerializer):
     """JSON serializer for Art
     """
+    fan = ArtFanSerializer(many=False)
     class Meta:
         model = Art
         fields = (
@@ -76,17 +85,3 @@ class ArtSerializer(serializers.ModelSerializer):
             'tag'
             )
         depth = 1
-
-class TagSerializer(serializers.ModelSerializer):
-    """JSON serializer for Tag
-    """
-    class Meta:
-        model = Tag
-        fields = ('id', 'label')
-
-class FanSerializer(serializers.ModelSerializer):
-    """JSON serializer for Fan
-    """
-    class Meta:
-        model = Fan
-        fields = ('id', 'user')
