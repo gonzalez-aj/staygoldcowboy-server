@@ -46,6 +46,17 @@ class TagView(ViewSet):
         serializer = TagSerializer(tags, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
 
+    def update(self, request, pk=None):
+        """Handle PUT requests for a tag - replaces entire object
+        Returns:
+            Response -- Empty body with 204 status code
+        """
+        tag = Tag.objects.get(pk=pk)
+        tag.medium = request.data["medium"]
+        tag.save()
+        return Response(None, status=status.HTTP_204_NO_CONTENT)
+
+
 class TagSerializer(serializers.ModelSerializer):
     """JSON serializer for tags
     """
