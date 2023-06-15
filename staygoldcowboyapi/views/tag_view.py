@@ -13,7 +13,7 @@ class TagView(ViewSet):
         """Handle POST operations
 
         Returns
-            Response -- JSON serialized game instance
+            Response -- JSON serialized tag instance
         """
 
         new_tag = Tag.objects.create(
