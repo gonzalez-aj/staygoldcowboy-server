@@ -58,7 +58,7 @@ class TagView(ViewSet):
             return Response(None, status=status.HTTP_204_NO_CONTENT)
         except Tag.DoesNotExist:
             return Response("Oops 404! Tag not found", status=status.HTTP_404_NOT_FOUND)
-        
+
     def destroy(self, request, pk=None):
         """Handle DELETE requests for a single tag
         Returns:
