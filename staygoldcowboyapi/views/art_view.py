@@ -68,23 +68,33 @@ class ArtView(ViewSet):
         Returns:
             Response -- Empty body with 204 status code
         """
-        data = request.data
-        art = Art.objects.get(pk=pk)
+        try:
+            data = request.data
+            art = Art.objects.get(pk=pk)
 
-        art.title = data["title"]
-        art.creation_date = data["creationDate"]
-        art.image_url = data["imageUrl"]
+            art.title = data["title"]
+            art.creation_date = data["creationDate"]
+            art.image_url = data["imageUrl"]
 
-        tags = []
-        for tag_id in data["tag"]:
-            tag = Tag.objects.get(pk=tag_id)
-            tags.append(tag)
-
-        art.tag.set(tags)
-        art.save()
-
-        return Response(None, status=status.HTTP_204_NO_CONTENT)
-
+            tags = []
+            for tag_id in data["tag"]:
+                try:
+                    tag = Tag.objects.get(pk=tag_id)
+                    tags.append(tag)
+                except Tag.DoesNotExist:
+                    return Response(
+                        {f"Oops 404! Tag {tag_id} not found"}, status=status.HTTP_404_NOT_FOUND)
+            art.tag.set(tags)
+            art.save()
+            return Response(None, status=status.HTTP_204_NO_CONTENT)
+        except Art.DoesNotExist:
+            return Response("Oops, 404! Art not found", status=status.HTTP_404_NOT_FOUND)
+        except KeyError as ex:
+            return Response(
+                {"Oops, 400!": f"Missing field: {str(ex)}"}, status=status.HTTP_400_BAD_REQUEST)
+        except Exception as ex:
+            return Response(
+                {'Oops, my bad, message': ex.args[0]}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
 class ArtFanSerializer(serializers.ModelSerializer):
     """JSON serializer for Fan
