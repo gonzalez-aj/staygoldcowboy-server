@@ -13,7 +13,7 @@ class ArtView(ViewSet):
         """Handle POST operations
 
         Returns
-            Response -- JSON serialized game instance
+            Response -- JSON serialized art instance
         """
         data = request.data
         fan = Fan.objects.get(uid=data["uid"])
@@ -61,6 +61,29 @@ class ArtView(ViewSet):
 
         serializer = ArtSerializer(arts, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
+
+    def update(self, request, pk=None):
+        """Handle PUT requests for an art resource - replaces entire obj
+
+        Returns:
+            Response -- Empty body with 204 status code
+        """
+        data = request.data
+        art = Art.objects.get(pk=pk)
+
+        art.title = data["title"]
+        art.creation_date = data["creationDate"]
+        art.image_url = data["imageUrl"]
+
+        tags = []
+        for tag_id in data["tag"]:
+            tag = Tag.objects.get(pk=tag_id)
+            tags.append(tag)
+
+        art.tag.set(tags)
+        art.save()
+
+        return Response(None, status=status.HTTP_204_NO_CONTENT)
 
 
 class ArtFanSerializer(serializers.ModelSerializer):
