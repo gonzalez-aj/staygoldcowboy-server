@@ -51,10 +51,13 @@ class TagView(ViewSet):
         Returns:
             Response -- Empty body with 204 status code
         """
-        tag = Tag.objects.get(pk=pk)
-        tag.medium = request.data["medium"]
-        tag.save()
-        return Response(None, status=status.HTTP_204_NO_CONTENT)
+        try:
+            tag = Tag.objects.get(pk=pk)
+            tag.medium = request.data["medium"]
+            tag.save()
+            return Response(None, status=status.HTTP_204_NO_CONTENT)
+        except Tag.DoesNotExist:
+            return Response("Oops, 404 Tag not found", status=status.HTTP_404_NOT_FOUND)
 
 
 class TagSerializer(serializers.ModelSerializer):
