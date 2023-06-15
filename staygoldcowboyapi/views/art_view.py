@@ -95,6 +95,23 @@ class ArtView(ViewSet):
         except Exception as ex:
             return Response(
                 {'Oops, my bad, message': ex.args[0]}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+        
+    def destroy(self, request, pk=None):
+        """Handle DELETE requests for a single art
+
+        Returns:
+            Response -- 200, 404, or 500 status code
+        """
+        try:
+            art = Art.objects.get(pk=pk)
+            art.delete()
+            return Response(None, status=status.HTTP_204_NO_CONTENT)
+        except Art.DoesNotExist as ex:
+            return Response(
+                {'Oops, 404! Art not found': ex.args[0]}, status=status.HTTP_404_NOT_FOUND)
+        except Exception as ex:
+            return Response(
+                {'Oops, my bad, message': ex.args[0]}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
 class ArtFanSerializer(serializers.ModelSerializer):
     """JSON serializer for Fan
