@@ -16,8 +16,8 @@ class ArtView(ViewSet):
             Response -- JSON serialized art instance
         """
         data = request.data
-        fan = Fan.objects.get(uid=data["uid"])
-        tag_ids = data.pop("tag", [])
+        fan = Fan.objects.get(uid=request.META['HTTP_AUTHORIZATION'])
+        tag_ids = data["tagId"]
 
         new_art = Art.objects.create(
             fan=fan,
@@ -95,7 +95,7 @@ class ArtView(ViewSet):
         except Exception as ex:
             return Response(
                 {'Oops, my bad, message': ex.args[0]}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
-        
+
     def destroy(self, request, pk=None):
         """Handle DELETE requests for a single art
 
