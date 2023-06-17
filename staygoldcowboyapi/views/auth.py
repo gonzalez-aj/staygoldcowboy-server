@@ -8,7 +8,7 @@ def check_user(request):
     '''Checks to see if User has Associated Fan
 
     Method arguments:
-      request -- The full HTTP request object
+        request -- The full HTTP request object
     '''
     uid = request.data['uid']
 
@@ -32,7 +32,7 @@ def register_user(request):
     '''Handles the creation of a new fan for authentication
 
     Method arguments:
-      request -- The full HTTP request object
+        request -- The full HTTP request object
     '''
 
     fan = Fan.objects.create(
