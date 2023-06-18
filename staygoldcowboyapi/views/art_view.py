@@ -77,7 +77,7 @@ class ArtView(ViewSet):
             art.image_url = data["imageUrl"]
 
             tags = []
-            for tag_id in data["tag"]:
+            for tag_id in data["tagId"]:
                 try:
                     tag = Tag.objects.get(pk=tag_id)
                     tags.append(tag)
