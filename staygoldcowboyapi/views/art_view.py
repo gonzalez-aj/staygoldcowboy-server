@@ -7,7 +7,7 @@ from staygoldcowboyapi.models import Art, Fan, Tag
 
 
 class ArtView(ViewSet):
-    """SGC Art view"""
+    """SGC Art view viewsets"""
 
     def create(self, request):
         """Handle POST operations
