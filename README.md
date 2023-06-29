@@ -5,11 +5,11 @@
 
 ## Topics
 - [Overview](#overview)
+- [Get Started](#get-started)
 - [MVP Features](#mvp-features)
 - [Relevant Links](#relevant-links)
 - [Code Snippet](#code-snippet)
 - [Project Screenshots](#project-screenshots)
-- [Get Started](#get-started)
 - [Tech and Frameworks Used](#tech-and-frameworks-used)
 - [Contributors](#contributors)
 ___
