@@ -99,7 +99,8 @@ class ArtView(ViewSet):
 ### Tech and Frameworks Used
 <div align="center">  
 <a href="https://www.python.org/" target="_blank"><img style="margin: 10px" src="https://profilinator.rishav.dev/skills-assets/python-original.svg" alt="Python" height="50" /></a>  
-<a href="https://www.djangoproject.com/" target="_blank"><img style="margin: 10px" src="https://profilinator.rishav.dev/skills-assets/django-original.svg" alt="Django" height="50" /></a>  
+<a href="https://www.djangoproject.com/" target="_blank"><img style="margin: 10px" src="https://profilinator.rishav.dev/skills-assets/django-original.svg" alt="Django" height="50" /></a>
+<img src="https://img.shields.io/badge/SQLite-07405E?style=for-the-badge&logo=sqlite&logoColor=white" alt="SQLite" />
 </div>
 
 
@@ -110,5 +111,5 @@ class ArtView(ViewSet):
 
 ## Contributors
 - [Angie Gonzalez](https://github.com/AngieMGonzalez)
-- Badges from [Profilnator]([https://github.com/alexandresanlim/Badges4-README.md-Profile#see-more-repositories](https://profilinator.rishav.dev/))
+- Badges from [Alexandre Sanlim](https://github.com/alexandresanlim/Badges4-README.md-Profile#see-more-repositories) and [Profilinator]([https://github.com/alexandresanlim/Badges4-README.md-Profile#see-more-repositories](https://profilinator.rishav.dev/))
 - Client-Side React/Next.js Django Auth [template from Nashville Software School](https://github.com/codetracker-learning/TEMPLATE-nextjs-withauth-django)
