@@ -12,6 +12,7 @@
 - [Code Snippet](#code-snippet)
 - [Project Screenshots](#mvp-project-screenshots)
 - [Tech and Frameworks Used](#tech-and-frameworks-used)
+- [Future Features](#future-features)
 - [Contributors](#contributors)
 ___
 
@@ -108,6 +109,11 @@ class ArtView(ViewSet):
 <div align="center">  
     <a href="https://firebase.google.com/" target="_blank"><img style="margin: 10px" src="https://profilinator.rishav.dev/skills-assets/firebase.png" alt="Firebase" height="50" /></a>  
 </div>
+
+### Future Features
+- fans will be able to search through any description word or tag of on the art piece
+- fans will be able to filter art by camera types used as well
+- fans will be able to upload image files (JPG, IMG, PNG)
 
 ## Contributors
 - [Angie Gonzalez](https://github.com/AngieMGonzalez)
